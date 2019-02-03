@@ -4,7 +4,8 @@
   "description": "Notify you when new waves asset created",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,11 @@
   },
   "homepage": "https://github.com/1tD0g/Waves-New-Token-Notifier#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "install": "^0.12.2",
+    "jsonfile": "^5.0.0",
     "node-telegram-bot-api": "^0.30.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise-any": "^1.0.5"
   }
 }
