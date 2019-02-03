@@ -63,7 +63,7 @@ async function check(){
                     console.log("Found Asset Issue, but is reissuable asset. Not notifying, Transaction ID: " + val.id);
                 }else{
                     const {id, sender, assetId, name, reissuable, description, decimals, quantity} = val;
-                    const txt = `!! <b>New Asset Detected</b> !!\nTransaction ID: <code>${id}</code>\nSender: <code>${sender}</code>\nAsset ID: <code>${assetId}</code>\n==<b>Asset Info</b>==\nName: <b>${name}</b>\nQuantity: <b>${quantity}</b>\nDeciamsl: <b>${decimals}</b>\nReissuable: <b>${reissuable}</b>\nDescription: <pre>${description}</pre>`
+                    const txt = `!! <b>New Asset Detected</b> !!\nTransaction ID: <code>${id}</code>\nSender: <code>${sender}</code>\nAsset ID: <code>${assetId}</code>\n==<b>Asset Info</b>==\nName: <b>${name}</b>\nQuantity: <b>${quantity}</b>\nDeciamsl: <b>${decimals}</b>\nReissuable: <b>${reissuable}</b>\nDescription: <pre>${description}</pre>\n<a href="https://wavesexplorer.com/blocks/${data.block}">Click to View the Block on Explorer</a>\n\n<a href="https://wavesexplorer.com/tx/${id}">Click to View the Transaction on Explorer</a>`
                     console.log(txt);
                     if(process.env.token != null && process.env.token != "" && data.owner != null){
                         send(data.owner, txt);

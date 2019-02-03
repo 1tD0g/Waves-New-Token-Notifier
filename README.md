@@ -2,6 +2,8 @@
 
 Notify you on Telegram when there are new asset created on Waves.
 
+[Link to Waves Platform](https://wavesplatform.com/)
+
 # Setup
 
 1. `npm install`
