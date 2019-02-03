@@ -1,0 +1,1 @@
+# Waves New Token Notifier

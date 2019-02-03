@@ -1,0 +1,28 @@
+{
+  "name": "waves-new-token-notifier",
+  "version": "1.0.0",
+  "description": "Notify you when new waves asset created",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1tD0g/Waves-New-Token-Notifier.git"
+  },
+  "keywords": [
+    "Waves",
+    "Telegram"
+  ],
+  "author": "1tD0g",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1tD0g/Waves-New-Token-Notifier/issues"
+  },
+  "homepage": "https://github.com/1tD0g/Waves-New-Token-Notifier#readme",
+  "dependencies": {
+    "install": "^0.12.2",
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.88.0"
+  }
+}
