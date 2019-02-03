@@ -8,4 +8,10 @@ Notify you on Telegram when there are new asset created on Waves.
 
 2. `update token in .env file`
 
-2. `npm start`
+3. `npm start`
+
+4. `Click "Start" on your bot, then the bot should reply "You are now Owner"`
+
+5. `Wait until there is a asset created.`
+
+** Keep the program running **
