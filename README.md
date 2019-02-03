@@ -14,4 +14,4 @@ Notify you on Telegram when there are new asset created on Waves.
 
 5. `Wait until there is a asset created.`
 
-** Keep the program running **
+**Remember to keep the program RUNNING**
