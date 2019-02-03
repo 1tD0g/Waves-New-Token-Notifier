@@ -5,7 +5,7 @@ const fs = require("fs");
 const jsonFile = require("jsonfile");
 const log = console.log;
 console.log = function(txt){ log(`[${new Date().toLocaleString()}] >>> ${txt}`) };
-
+console.clear()
 //******************************//
 if(!fs.existsSync(process.env.path)){
     console.timeLog(`${process.env.path} NOT found, creating new one`)
@@ -16,7 +16,7 @@ if(!fs.existsSync(process.env.path)){
 }
 let data = jsonFile.readFileSync(process.env.path);
 check()
-setInterval(check, 1000 * 20)
+setInterval(check, 1000 * 5)
 //******************************//
 if(process.env.token != null && process.env.token != ""){
     const telegram = new (require("node-telegram-bot-api"))(process.env.token, {
@@ -53,13 +53,22 @@ function updateData(){
 async function check(){
     try{
         var {height, transactions} = await api.getBlock();
-        console.log("Current Block Height: " + height);
         if(data.block == height) return;
+        console.log("Current Block Height: " + height);
         data.block = height;
         updateData()
         transactions.forEach(val => {
             if(val.type == 3){
-                console.log(val)
+                if(process.env.nonreissuableonly == 1 && val.reissuable){
+                    console.log("Found Asset Issue, but is reissuable asset. Not notifying, Transaction ID: " + val.id);
+                }else{
+                    const {id, sender, assetId, name, reissuable, description, decimals, quantity} = val;
+                    const txt = `!! <b>New Asset Detected</b> !!\nTransaction ID: <code>${id}</code>\nSender: <code>${sender}</code>\nAsset ID: <code>${assetId}</code>\n==<b>Asset Info</b>==\nName: <b>${name}</b>\nQuantity: <b>${quantity}</b>\nDeciamsl: <b>${decimals}</b>\nReissuable: <b>${reissuable}</b>\nDescription: <pre>${description}</pre>`
+                    console.log(txt);
+                    if(process.env.token != null && process.env.token != "" && data.owner != null){
+                        send(data.owner, txt);
+                    }
+                }
             }
         })
     }catch(e){

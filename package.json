@@ -23,7 +23,6 @@
   "homepage": "https://github.com/1tD0g/Waves-New-Token-Notifier#readme",
   "dependencies": {
     "dotenv": "^6.2.0",
-    "install": "^0.12.2",
     "jsonfile": "^5.0.0",
     "node-telegram-bot-api": "^0.30.0",
     "request": "^2.88.0",
